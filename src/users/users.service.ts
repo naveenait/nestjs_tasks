@@ -19,6 +19,9 @@ export class UsersService {
     return this.userModel.findById(id).exec();
   }
 
+  async findByEmail(email: string) {
+    return this.userModel.findOne({ email });
+  }
   // FULL UPDATE (PUT)
   replace(id: string, data: any) {
     return this.userModel.findOneAndReplace({ _id: id }, data, { new: true });
